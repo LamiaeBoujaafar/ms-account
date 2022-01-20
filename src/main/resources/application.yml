@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://Lamiae:K3pagkvoDDn3XNay@cluster0.4uuvm.mongodb.net/account
