@@ -46,7 +46,7 @@ class AccountServiceUnitTest {
 
         //WHEN
         when(compteRepository.findById(compte.getId())).thenReturn(Optional.of(compte));
-        compteService.delete(compte.getRib());
+        compteService.delete(compte.getId());
 
         //THEN
         Mockito.verify(compteRepository).delete(compte);
