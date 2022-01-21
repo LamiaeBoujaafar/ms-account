@@ -5,10 +5,12 @@ import com.example.account.repository.CompteRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
 
+@RunWith(SpringRunner.class)
 @ExtendWith(MockitoExtension.class)
 class AccountServiceUnitTest {
     @Mock
@@ -43,7 +46,7 @@ class AccountServiceUnitTest {
 
         //WHEN
         when(compteRepository.findById(compte.getId())).thenReturn(Optional.of(compte));
-        Compte expected = compteService.delete(compte.getId());
+        compteService.delete(compte.getRib());
 
         //THEN
         Mockito.verify(compteRepository).delete(compte);
